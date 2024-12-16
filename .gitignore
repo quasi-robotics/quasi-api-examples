@@ -1,0 +1,4 @@
+.env
+.ruby*
+.rbenv*
+Gemfile.lock
