@@ -9,7 +9,7 @@ class Cart
   def self.list(user)
     Quasi::API.robots(user.access_token) do |resp|
       body = JSON.parse(resp.body)
-      body['robots'].select{|r| r['modelName'] == 'C2 Cart'}.map { |r| {id: r['_id'], name: r['name'], sn: r['serialNumber'], online: r['online']}} 
+      body['robots'].select{|r| r['modelType'] == 'cart'}.map { |r| {id: r['_id'], name: r['name'], sn: r['serialNumber'], model: r['modelName'], online: r['online']}} 
     end
   end
 
